@@ -16,15 +16,15 @@ public class ClientLogementDTO implements Serializable {
     private Boolean isValidate;
     private String pieceAdmin;
 
-    private Long clientId;
+    private Long clientIdClient;
     private String nomClient;
     private String prenomClient;
     private String clientEmail;
     private String clientProfessionClient;
-    private Date clientDateNaissance ;
+//    private String clientDateNaissance ;
     private String clientLieuNaissance ;
 
-    private Long logementId;
+    private Long logementIdLogement;
     private String logementLibelle;
     private int logementSurfaceHabitable;
     private int logementSuperficie;

@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@RequestMapping(path = "api/v1/logement")
+@RequestMapping(path = "logements/")
 public class LogementController {
 
     private final LogementService logementService;

@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @AllArgsConstructor
 @RestController
-@RequestMapping(path = "api/auth/")
+@RequestMapping(path = "auth")
 public class AppUserController {
     @Autowired
     AuthenticationManager authenticationManager;
@@ -41,10 +41,6 @@ public class AppUserController {
     @Autowired
     AppUserRepository appUserRepository;
 
-    @GetMapping(path = "users")
-    public List<AppUser> listUsers(){
-        return this.appUserService.listUsers();
-    }
 
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {

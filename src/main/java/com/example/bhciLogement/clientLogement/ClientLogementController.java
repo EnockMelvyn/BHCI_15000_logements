@@ -12,7 +12,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@RequestMapping(path = "api/v1/client/logement/")
+@RequestMapping(path = "clientLogements")
 public class ClientLogementController {
 
     private final ClientLogementService clientLogementService;
@@ -32,8 +32,13 @@ public class ClientLogementController {
 
     @GetMapping(path = "validatedList")
     @PreAuthorize("hasRole('USER')")
-    public List<ClientLogementDTO> getClientLogementsValidate(){
-        return clientLogementTransformer.convertToDto(clientLogementService.getClientLogementsValidate());
+    public List<ClientLogementDTO> getClientLogementsValidate() throws Exception{
+        try{
+            return clientLogementTransformer.convertToDto(clientLogementService.getClientLogementsValidate());
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @GetMapping(path = "refusedList")

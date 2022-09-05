@@ -20,7 +20,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@RequestMapping(path = "api/v1")
+@RequestMapping(path = "clients")
 public class ClientController {
 
     private final ClientService clientService;
@@ -34,13 +34,13 @@ public class ClientController {
     }
 
     @RolesAllowed("admin")
-    @GetMapping(path = "listClients")
+    @GetMapping(path = "list")
     public List<ClientDTO> getClients(){
         return clientTransformer.convertToDto(clientService.getClients());
     }
 
 
-    @PostMapping(path = "clientFile")
+    @PostMapping(path = "addWithFile")
     public ResponseEntity<?> addNewClientFile(@ModelAttribute("clientDTO") ClientDTO clientDTO) {
 //        System.out.println(entree.getClient());
 //        System.out.println(entree.getLogement());
@@ -62,7 +62,7 @@ public class ClientController {
 
     }
 
-    @PostMapping(path = "client")
+    @PostMapping(path="add")
     public ResponseEntity<?> addNewClient(@RequestBody ClientDTO clientDTO) {
             System.out.println("DTO GET FILES");
             System.out.println(clientDTO.getFiles());
@@ -94,12 +94,12 @@ public class ClientController {
 //
 //    }
 
-    @DeleteMapping(path = "client/{idClient}")
+    @DeleteMapping(path = "{idClient}")
     public void deleteClient(@PathVariable("idClient") Long idClient){
         clientService.removeClient(idClient);
     }
 
-    @PutMapping(path = "client/{idClient}")
+    @PutMapping(path = "{idClient}")
     public ClientDTO updateClient(@PathVariable("idClient") Long idClient,
                                  @RequestParam(required = false) String name,
                                  @RequestParam(required = false) String email){

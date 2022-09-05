@@ -1,11 +1,9 @@
 package com.example.bhciLogement.clientLogement;
 
 import com.example.bhciLogement.client.Client;
-import com.example.bhciLogement.client.ClientRepository;
 import com.example.bhciLogement.client.ClientService;
 import com.example.bhciLogement.logement.Logement;
 import com.example.bhciLogement.logement.LogementService;
-import com.sun.org.apache.bcel.internal.generic.RETURN;
 import lombok.AllArgsConstructor;
 import org.hibernate.Session;
 import org.springframework.stereotype.Service;
@@ -15,8 +13,6 @@ import javax.transaction.Transactional;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 
 @AllArgsConstructor
 @Service
